@@ -93,8 +93,8 @@ jobs:
             - name: Diagnóstico
               if: steps.deploy.outcome == 'failure'
               run: |
-                kubectl describe desployment app-localstack
-                kubectl describe pds -l app=app-localstack
+                kubectl describe deployment app-localstack
+                kubectl describe pods -l app=app-localstack
             
             - name: Verificar
               if: steps.deploy.outcome == 'success'
