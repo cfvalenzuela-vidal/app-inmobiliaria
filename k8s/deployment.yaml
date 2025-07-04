@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-inmobiliaria-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app-inmobiliaria
+  template:
+    metadata:
+      labels:
+        app: app-inmobiliaria
+    spec:
+      containers:
+      - name: app-inmobiliaria-container
+        imagePullPolicy: IfNotPresent
+        image: app-inmobiliaria:latest
+        ports:
+        - containerPort: 8080
