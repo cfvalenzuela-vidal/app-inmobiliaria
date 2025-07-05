@@ -1,0 +1,278 @@
+Microsoft Windows [Versión 10.0.26100.4351]
+(c) Microsoft Corporation. Todos los derechos reservados.
+
+C:\Windows\System32>cd C:\Users\cfvalenzuela.vidal\app-inmobiliaria
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>awslocal ecr create-repository --repository-name app-inmobiliaria --region us-east-1 --image-scanning-configuration scanOnPush=true
+{
+    "repository": {
+        "repositoryArn": "arn:aws:ecr:us-east-1:000000000000:repository/app-inmobiliaria",
+        "registryId": "000000000000",
+        "repositoryName": "app-inmobiliaria",
+        "repositoryUri": "000000000000.dkr.ecr.us-east-1.localhost.localstack.cloud:4566/app-inmobiliaria",
+        "createdAt": 1751665217.0,
+        "imageTagMutability": "MUTABLE",
+        "imageScanningConfiguration": {
+            "scanOnPush": true
+        },
+        "encryptionConfiguration": {
+            "encryptionType": "AES256"
+        }
+    }
+}
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>docker build -t app-inmobiliaria .
+[+] Building 0.2s (1/1) FINISHED                                                                   docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                               0.1s
+ => => transferring dockerfile: 2B                                                                                 0.0s
+ERROR: failed to solve: failed to read dockerfile: open Dockerfile: no such file or directory
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/ggth9119dbcp1ejovr0t4mpsu
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>docker build -t app-inmobiliaria .
+[+] Building 84.4s (9/10)                                                                          docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 158B                                                                               0.0s
+ => [internal] load metadata for docker.io/library/node:16                                                         3.1s
+ => [auth] library/node:pull token for registry-1.docker.io                                                        0.0s
+ => [internal] load .dockerignore                                                                                  0.1s
+ => => transferring context: 2B                                                                                    0.0s
+ => [1/5] FROM docker.io/library/node:16@sha256:f77a1aef2da8d83e45ec990f45df50f1a286c5fe8bbfb8c6e4246c6389705c0b  79.1s
+ => => resolve docker.io/library/node:16@sha256:f77a1aef2da8d83e45ec990f45df50f1a286c5fe8bbfb8c6e4246c6389705c0b   0.1s
+ => => sha256:f77a1aef2da8d83e45ec990f45df50f1a286c5fe8bbfb8c6e4246c6389705c0b 776B / 776B                         0.0s
+ => => sha256:c94b82f9827cab6e421b350965a9ef11b25b13ffbd1030536203d541f55dcbe2 2.00kB / 2.00kB                     0.0s
+ => => sha256:ffd9397e94b74abcb54e514f1430e00f604328d1f895eadbd482f08cc02444e5 51.89MB / 51.89MB                  27.8s
+ => => sha256:1ddc7e4055fdb6f6bf31063b593befda814294f9f904b6ddfc21ab1513bafa8e 7.23kB / 7.23kB                     0.0s
+ => => sha256:7e9bf114588c05b2df612b083b96582f3b8dbf51647aa6138a50d09d42df2454 17.58MB / 17.58MB                   5.8s
+ => => sha256:311da6c465ea1576925360eba391bcd32dece9be95960a0bc9ffcb25fe712017 50.50MB / 50.50MB                  47.5s
+ => => sha256:513d779256048c961239af5f500589330546b072775217272e19ffae1635e98e 191.90MB / 191.90MB                64.4s
+ => => sha256:ae3b95bbaa61ce24cefdd89e7c74d6fbd7713b2bcae93af47063d06bd7e02172 4.20kB / 4.20kB                    28.2s
+ => => sha256:0e421f66aff42bb069dffc26af6d132194b22a1082b08c5ef7cd69c627783c04 34.79MB / 34.79MB                  46.4s
+ => => sha256:ca266fd6192108b67fb57b74753a8c4ca5d8bd458baae3d4df7ce9f42dedcc1d 2.27MB / 2.27MB                    48.9s
+ => => extracting sha256:311da6c465ea1576925360eba391bcd32dece9be95960a0bc9ffcb25fe712017                          7.2s
+ => => sha256:ee7d78be1eb92caf6ae84fc3af736b23eca018d5dedc967ae5bdee6d7082403b 450B / 450B                        48.3s
+ => => extracting sha256:7e9bf114588c05b2df612b083b96582f3b8dbf51647aa6138a50d09d42df2454                          1.3s
+ => => extracting sha256:ffd9397e94b74abcb54e514f1430e00f604328d1f895eadbd482f08cc02444e5                          5.6s
+ => => extracting sha256:513d779256048c961239af5f500589330546b072775217272e19ffae1635e98e                         10.9s
+ => => extracting sha256:ae3b95bbaa61ce24cefdd89e7c74d6fbd7713b2bcae93af47063d06bd7e02172                          0.0s
+ => => extracting sha256:0e421f66aff42bb069dffc26af6d132194b22a1082b08c5ef7cd69c627783c04                          2.2s
+ => => extracting sha256:ca266fd6192108b67fb57b74753a8c4ca5d8bd458baae3d4df7ce9f42dedcc1d                          0.1s
+ => => extracting sha256:ee7d78be1eb92caf6ae84fc3af736b23eca018d5dedc967ae5bdee6d7082403b                          0.0s
+ => [internal] load build context                                                                                  0.1s
+ => => transferring context: 4.33kB                                                                                0.0s
+ => [2/5] WORKDIR /usr/src/app                                                                                     0.5s
+ => [3/5] COPY package*.json ./                                                                                    0.1s
+ => ERROR [4/5] RUN npm install                                                                                    1.2s
+------
+ > [4/5] RUN npm install:
+1.105 npm ERR! code EJSONPARSE
+1.105 npm ERR! path /usr/src/app/package.json
+1.109 npm ERR! JSON.parse Unexpected end of JSON input while parsing empty string
+1.110 npm ERR! JSON.parse Failed to parse JSON data.
+1.110 npm ERR! JSON.parse Note: package.json must be actual JSON, not just JavaScript.
+1.114
+1.114 npm ERR! A complete log of this run can be found in:
+1.114 npm ERR!     /root/.npm/_logs/2025-07-04T21_47_36_741Z-debug-0.log
+------
+Dockerfile:4
+--------------------
+   2 |     WORKDIR /usr/src/app
+   3 |     COPY package*.json ./
+   4 | >>> RUN npm install
+   5 |     COPY . .
+   6 |     EXPOSE 3000
+--------------------
+ERROR: failed to solve: process "/bin/sh -c npm install" did not complete successfully: exit code: 1
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/z7i5dzkyex2khb3mcdq4k5qat
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>npm init -y
+
+npm error code EJSONPARSE
+npm error JSON.parse Invalid package.json: JSONParseError: Unexpected end of JSON input while parsing empty string
+npm error JSON.parse Failed to parse JSON data.
+npm error JSON.parse Note: package.json must be actual JSON, not just JavaScript.
+npm error A complete log of this run can be found in: C:\Users\cfvalenzuela.vidal\AppData\Local\npm-cache\_logs\2025-07-04T21_51_22_260Z-debug-0.log
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>npm init -y
+Wrote to C:\Users\cfvalenzuela.vidal\app-inmobiliaria\package.json:
+
+{
+  "name": "app-inmobiliaria",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>docker build -t app-inmobiliaria .
+[+] Building 3.6s (11/11) FINISHED                                                                 docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 158B                                                                               0.0s
+ => [internal] load metadata for docker.io/library/node:16                                                         1.8s
+ => [auth] library/node:pull token for registry-1.docker.io                                                        0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 440B                                                                                  0.0s
+ => [1/5] FROM docker.io/library/node:16@sha256:f77a1aef2da8d83e45ec990f45df50f1a286c5fe8bbfb8c6e4246c6389705c0b   0.0s
+ => CACHED [2/5] WORKDIR /usr/src/app                                                                              0.0s
+ => [3/5] COPY package*.json ./                                                                                    0.1s
+ => [4/5] RUN npm install                                                                                          1.0s
+ => [5/5] COPY . .                                                                                                 0.1s
+ => exporting to image                                                                                             0.3s
+ => => exporting layers                                                                                            0.2s
+ => => writing image sha256:726e88611ed55b2da5d9b6bd346e1bd2baa262faba56442e520e6728d0e4292d                       0.0s
+ => => naming to docker.io/library/app-inmobiliaria                                                                0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/msnvlzpl0v22r55uacr5h334x
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>awslocal ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin http://localhost:4566
+Error response from daemon: login attempt to http://localhost:4566/v2/ failed with status: 404 Not Found
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 000000000000.dkr.ecr.us-east-1.localhost.localstack.cloud:4566/app-inmobiliaria
+
+Unable to locate credentials. You can configure credentials by running "aws configure".
+Error: Cannot perform an interactive login from a non TTY device
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>awslocal ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 000000000000.dkr.ecr.us-east-1.localhost.localstack.cloud:4566
+Login Succeeded
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>docker tag app-inmobiliaria 000000000000.dkr.ecr.us-east-1.localhost.localstack.cloud:4566:latest
+Error parsing reference: "000000000000.dkr.ecr.us-east-1.localhost.localstack.cloud:4566:latest" is not a valid repository/tag: invalid reference format
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>docker tag app-inmobiliaria 000000000000.dkr.ecr.us-east-1.localhost.localstack.cloud:4566:latestdocker tag app-inmobiliaria 000000000000.dkr.ecr.us-east-1.localhost.localstack.cloud:4566:latest
+"docker tag" requires exactly 2 arguments.
+See 'docker tag --help'.
+
+Usage:  docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+
+Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>docker tag app-inmobiliaria 000000000000.dkr.ecr.us-east-1.localhost.localstack.cloud:4566:latest
+Error parsing reference: "000000000000.dkr.ecr.us-east-1.localhost.localstack.cloud:4566:latest" is not a valid repository/tag: invalid reference format
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>docker tag app-inmobiliaria 000000000000.dkr.ecr.us-east-1.localhost.localstack.cloud:4566/app-inmobiliaria:latest
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>docker push 000000000000.dkr.ecr.us-east-1.localhost.localstack.cloud:4566/app-inmobiliaria:latest
+The push refers to repository [000000000000.dkr.ecr.us-east-1.localhost.localstack.cloud:4566/app-inmobiliaria]
+232471c9d4d0: Pushed
+861d9adeab71: Pushed
+205bad497f25: Pushed
+4c494420ede7: Pushed
+be322b479aee: Pushed
+d41bcd3a037b: Pushed
+fe0d845e767b: Pushed
+f25ec1d93a58: Pushed
+794ce8b1b516: Pushed
+3220beed9b06: Pushed
+684f82921421: Pushed
+9af5f53e8f62: Pushed
+latest: digest: sha256:623ce8623cc08c875418e80f394b18029d3b227d68c6269a6a0ce6a3a8416725 size: 2834
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git init
+Initialized empty Git repository in C:/Users/cfvalenzuela.vidal/app-inmobiliaria/.git/
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git add .
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git commit -m "first commit"
+[master (root-commit) 9c959e0] first commit
+ 4 files changed, 136 insertions(+)
+ create mode 100644 .github/workflows/deploy-ecr.yml
+ create mode 100644 Dockerfile
+ create mode 100644 app.js
+ create mode 100644 package.json
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git branch -M main
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git remote add origin https://github.com/cfvalenzuela-vidal/app-inmobiliaria.git
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git push -u origin main}
+error: src refspec main} does not match any
+error: failed to push some refs to 'https://github.com/cfvalenzuela-vidal/app-inmobiliaria.git'
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git push -u origin main
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (8/8), 2.24 KiB | 459.00 KiB/s, done.
+Total 8 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/cfvalenzuela-vidal/app-inmobiliaria.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git add .
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git commit -m "2do commit, se modifica deploy-ecr-Diagnóstico"
+[main 1adc24b] 2do commit, se modifica deploy-ecr-Diagnóstico
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git push -u origin main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 513 bytes | 171.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/cfvalenzuela-vidal/app-inmobiliaria.git
+   9c959e0..1adc24b  main -> main
+branch 'main' set up to track 'origin/main'.
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git add .
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git commit -m "3er commit, se agregan archivos k8s"
+[main 81db6db] 3er commit, se agregan archivos k8s
+ 2 files changed, 31 insertions(+)
+ create mode 100644 k8s/deployment.yaml
+ create mode 100644 k8s/service.yaml
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git push -u origin main
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 696 bytes | 348.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/cfvalenzuela-vidal/app-inmobiliaria.git
+   1adc24b..81db6db  main -> main
+branch 'main' set up to track 'origin/main'.
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git add .
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git commit -m "4to commit, se modifica deploymenten por app-inmobiliaria"
+[main 9255571] 4to commit, se modifica deploymenten por app-inmobiliaria
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git push -u origin main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 609 bytes | 304.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/cfvalenzuela-vidal/app-inmobiliaria.git
+   81db6db..9255571  main -> main
+branch 'main' set up to track 'origin/main'.
+
+C:\Users\cfvalenzuela.vidal\app-inmobiliaria>git push -u origin main
